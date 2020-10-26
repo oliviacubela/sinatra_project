@@ -1,0 +1,29 @@
+Travel Blog Application
+
+User can create/sign-up for an account
+User is automatically logged in after signing up
+Once User is logged in, they can access their Profile
+User can create a new post for travel Blog
+User's post will go to feed with other User's posts
+Users will be able to CRUD, but only on their own posts
+Application will prompt User to fill in fields for "Title" and "Description" for blog posts
+User required to fill in "Name", "Bio", "Favorite Travel Destination", and couple other fields that will be listed on their profile 
+Buttons to submit post, go back to feed, and logout.
+
+
+** STRETCH GOAL **
+Users can comment on each others' posts 
+
+
+
+
+Authenticate User in Controller - multiple ways to go about it (but make sure to separate concerns)
+  -sessions controller
+  -application controller
+
+
+
+set type - macro : password_digest 
+data type - t.string 
+set type - instead of text, its "password" in table, t.string :password_digest , then has_secure_password macro
+
