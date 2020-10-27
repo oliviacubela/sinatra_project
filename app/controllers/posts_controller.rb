@@ -6,20 +6,17 @@ class PostsController < ApplicationController
   end
 
   get "/posts/new" do
-    if logged_in?
-      erb :'/posts/new'
-    else
-      "error message - you must be logged in to view this content"
-      redirect "/"
-    end
+    redirect_if_not_logged_in
+    erb :'/posts/new'
   end
 
   post "/posts" do
     post = Post.new(title: params[:title], image_url: params[:image_url], content: params[:content], user_id: current_user.id)
     if post.save 
+      flash[:message] = "Post successfully created!"
       redirect "/posts/#{post.id}"
     else
-      "flash error" 
+      flash[:errors] = "Post creation failure: #{@post.errors.full_messages.to_sentence}" 
       redirect "/posts/new"
     end
   end
@@ -30,19 +27,39 @@ class PostsController < ApplicationController
   end
 
   get "/posts/:id/edit" do
-    @posts = Post.find(params[:id])
+    redirect_if_not_logged_in
+    find_post
     if authorized_to_edit?(@post)
       erb :'/posts/edit'
     else
-      "flash error"
-      redirect "/posts"
+      flash[:errors] = "Not authorized to edit that post."
+      redirect "/posts/#{@post.id}"
     end
   end
 
   patch "/posts/:id" do
-    @post = Post.find(params[:id])
+    find_post
     @post.update(title: params[:title], image_url: params[:image_url], content: params[:content])
     redirect "/posts/#{@post.id}"
+  end
+
+  delete '/posts/:id' do
+    
+    find_post
+    if authorized_to_edit?(@post)
+      @post.destroy
+      flash[:message] = "Successfully deleted post!"
+      redirect '/posts'
+    else
+      flash[:errors] = "You're not authorized to delete this post."
+      redirect "/posts/#{@post.id}"
+    end
+  end
+
+  private
+
+  def find_post
+    @post = Post.find(params[:id])
   end
 
 end

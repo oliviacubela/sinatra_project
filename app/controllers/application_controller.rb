@@ -7,6 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "secure_session"
+    register Sinatra::Flash
   end
 
   get "/" do
@@ -24,7 +25,14 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find_by(id: session[:user_id])
+      @current_user ||= User.find_by(id: session[:user_id])
+    end
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        flash[:errors] = "Must be logged in to view this page!"
+        redirect '/login'
+      end
     end
 
     def authorized_to_edit?(post)
