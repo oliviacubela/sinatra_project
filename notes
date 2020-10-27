@@ -12,8 +12,7 @@ Buttons to submit post, go back to feed, and logout.
 
 
 ** STRETCH GOAL **
-Users can comment on each others' posts 
-
+Users can comment on each others' posts
 
 
 
@@ -22,8 +21,14 @@ Authenticate User in Controller - multiple ways to go about it (but make sure to
   -application controller
 
 
-
 set type - macro : password_digest 
 data type - t.string 
 set type - instead of text, its "password" in table, t.string :password_digest , then has_secure_password macro
+
+AR VALIDATIONS -> https://guides.rubyonrails.org/active_record_validations.html#validation-helpers 
+
+** CSS **
+
+Site CANNOT be ugly!!!! 
+
 
