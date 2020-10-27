@@ -15,11 +15,18 @@
   </head>
   <body>
     <div class="wrapper">
+      <div class="nav">
+      <% if logged_in? %>
+      <a href="/posts">All Posts</a>
+      <a href="/">Create a Post</a>
+      <a href="/logout">Log Out</a>
+      <% end %>
+    </div>
 
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>SinatraProject</strong></small>
+        <small>&copy; 2020 <strong>TravelProject</strong></small>
       </footer>
     </div>
 
