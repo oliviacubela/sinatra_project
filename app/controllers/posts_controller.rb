@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       flash[:message] = "Post successfully created!"
       redirect "/posts/#{post.id}"
     else
-      flash[:errors] = "Post creation failure: #{@post.errors.full_messages.to_sentence}" 
+      flash[:error] = "Unable to create post - #{post.errors.full_messages.to_sentence}" 
       redirect "/posts/new"
     end
   end

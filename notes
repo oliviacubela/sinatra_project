@@ -49,4 +49,17 @@ Site CANNOT be ugly!!!!
 
 ---------------------------------------------------------------------------------------------------------
 
-https://github.com/anmol098/waka-readme-stats 
+
+      <ul class="nav">
+      <% if logged_in? %>
+        <li class="nav-item">
+          <a class="nav-link active" href="/posts">All Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/posts/new">Create Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/logout">Log Out</a>
+        </li>
+        <% end %>
+      </ul>

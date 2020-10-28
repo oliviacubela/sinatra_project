@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>SinatraProject</title>
+    <title>TravelProject</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -29,8 +29,9 @@
       <% elsif flash[:error] %>
         <h3 style="color:red;"><%= flash[:error] %></h3>
       <% end %>
-      <div class="nav">
-      <% if logged_in? %>
+
+      <div class="nav"> 
+      <% if logged_in? %> 
       <a href="/posts">All Posts</a>
       <a href="/posts/new">Create a Post</a>
       <a href="/logout">Log Out</a>
