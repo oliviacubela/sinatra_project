@@ -31,4 +31,22 @@ AR VALIDATIONS -> https://guides.rubyonrails.org/active_record_validations.html#
 
 Site CANNOT be ugly!!!! 
 
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
 
+
+---------------------------------------------------------------------------------------------------------
+
+https://github.com/anmol098/waka-readme-stats 

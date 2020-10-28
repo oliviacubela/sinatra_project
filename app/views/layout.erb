@@ -14,13 +14,13 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="nav">
-      <% if logged_in? %>
-      <a href="/posts">All Posts</a>
+    <%# <div class="nav"> %>
+      <%# <% if logged_in? %> 
+      <%# <a href="/posts">All Posts</a>
       <a href="/posts/new">Create a Post</a>
-      <a href="/logout">Log Out</a>
-      <% end %>
-    </div>
+      <a href="/logout">Log Out</a> %>
+      <%# <% end %>
+    <%# </div>  %>
 
     <div class="wrapper">
 
@@ -29,6 +29,13 @@
       <% elsif flash[:error] %>
         <h3 style="color:red;"><%= flash[:error] %></h3>
       <% end %>
+      <div class="nav">
+      <% if logged_in? %>
+      <a href="/posts">All Posts</a>
+      <a href="/posts/new">Create a Post</a>
+      <a href="/logout">Log Out</a>
+      <% end %>
+    </div>
 
         <%= yield %>
 
