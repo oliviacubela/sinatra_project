@@ -32,9 +32,8 @@
 
   .button {
     background-color: #fff;
-    border: 2px solid rgba(0, 0, 0, 0.767);
     color: rgba(0, 0, 0, 0.767);
-    padding: 15px 32px;
+    padding: 10px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -42,6 +41,12 @@
     font-family: Optima;
     margin: 4px 2px;
     cursor: pointer;
+    transition-duration: 0.4s;
+  }
+
+  .button:hover {
+    background-color: #555555;
+    color: #fff;
   }
 
   h1 {
