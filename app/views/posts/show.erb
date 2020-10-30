@@ -7,11 +7,11 @@
 
 <% if authorized_to_edit?(@post) %>
 
-<a href="/posts/<%= @post.id %>/edit">Edit Post</a>
+<a href="/posts/<%= @post.id %>/edit" class="button">Edit Post</a>
 
 <form class="" action="/posts/<%= @post.id %>" method="POST">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" name="" value="Delete This Post">
+  <input type="submit" class="button" name="" value="Delete This Post">
 </form>
 
 <% end %>
