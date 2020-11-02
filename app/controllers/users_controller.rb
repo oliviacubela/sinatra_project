@@ -30,11 +30,12 @@ class UsersController < ApplicationController
 
   post "/users" do
     @user = User.new(params)
+    # binding.pry
     if @user.save
       session[:user_id] = @user.id
       flash[:message] = "Welcome #{@user.username}!" 
 
-      redirect "/users/#{user.id}"
+      redirect "/users/#{@user.id}"
 
     else
       flash[:error] = "Unable to create account - #{@user.errors.full_messages.to_sentence}"
