@@ -29,12 +29,8 @@ class PostsController < ApplicationController
   get "/posts/:id/edit" do
     redirect_if_not_logged_in
     find_post
-    if authorized_to_edit?(@post)
-      erb :'/posts/edit'
-    else
-      flash[:errors] = "Not authorized to edit that post."
-      redirect "/posts/#{@post.id}"
-    end
+    authorized_to_edit?(@post)
+    erb :'/posts/edit'
   end
 
   patch "/posts/:id" do
@@ -44,16 +40,11 @@ class PostsController < ApplicationController
   end
 
   delete '/posts/:id' do
-    
     find_post
-    if authorized_to_edit?(@post)
-      @post.destroy
-      flash[:message] = "Successfully deleted post!"
-      redirect '/posts'
-    else
-      flash[:errors] = "You're not authorized to delete this post."
-      redirect "/posts/#{@post.id}"
-    end
+    authorized_to_edit?(@post)
+    @post.destroy
+    flash[:message] = "Successfully deleted post!"
+    redirect '/posts'
   end
 
   private

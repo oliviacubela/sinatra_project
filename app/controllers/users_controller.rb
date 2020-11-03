@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password])
       
       session[:user_id] = user.id
-      flash[:message] = "Welcome back #{user.username}"
+      flash[:message] = "Welcome back, #{user.username}!"
       redirect "/users/#{user.id}"
 
     else
@@ -30,7 +30,6 @@ class UsersController < ApplicationController
 
   post "/users" do
     @user = User.new(params)
-    # binding.pry
     if @user.save
       session[:user_id] = @user.id
       flash[:message] = "Welcome #{@user.username}!" 
