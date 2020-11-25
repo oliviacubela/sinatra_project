@@ -6,14 +6,14 @@ class UsersController < ApplicationController
 
   post "/login" do
     user = User.find_by(email: params[:email])
-    
+    # binding.pry
     if user && user.authenticate(params[:password])
-      #we ensure that we have a User, AND that that User is authenticated
-      session[:user_id] = user.id  #we set the session[:user_id] and redirect to the users/user.id route 
+      
+      session[:user_id] = user.id  
       flash[:message] = "Welcome back, #{user.username}!"
       redirect "/users/#{user.id}"
 
-    else #otherwise, we display an error message, and redirect to the /login route, so that our user can try again
+    else 
       flash[:error] = "Your login credentials are invalid. Please try again."
       redirect '/login'
     end
