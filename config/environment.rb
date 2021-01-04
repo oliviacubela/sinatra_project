@@ -26,7 +26,7 @@ configure :production do
     :adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
     :host     => db.host,
     :database => db.path[1..-1],
-    :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
+    :database => "db/#{ENV['SINATRA_ENV']}.sqlite",
     :encoding => 'utf8'
     )
 
